@@ -1,5 +1,5 @@
 /*
- * Nome:untitled.js
+ * Nome:authentication.js
  * Package: 
  * Autore:
  * Data:
@@ -9,7 +9,7 @@
  * +------+---------------+-----------+
  * | Data | Programmatore | Modifiche |
  * +------+---------------+-----------+
- * |      |               |           |
+ * |      |               | Scrittura codice          |
  */
 define([
  'jquery',
@@ -23,9 +23,14 @@ define([
   
   authenticationTemplate: _.template(authenticationTemplate),
   
+  initialize: function(){
+    _.bindAll(this, 'render'); 
+    this.render();
+  },
+    
   render: function() {
-    $(this.el).html(this.authenticationTemplate({variabile:'blablabla'}));	 
-    return this;    
+    $(this.el).html(this.authenticationTemplate());	 
+    
   }
     
  });

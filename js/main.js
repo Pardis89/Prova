@@ -9,7 +9,7 @@
  * +------+---------------+-----------+
  * | Data | Programmatore | Modifiche |
  * +------+---------------+-----------+
- * |      |               |           |
+ * |      |               | Scrittura codice          |
  */
 
 require.config({
@@ -35,6 +35,6 @@ require.config({
 
 require(['view/authentication'], function(AuthenticationView){
   var aview = new AuthenticationView();
-  aview.render();
+
 });
 
