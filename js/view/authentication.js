@@ -19,17 +19,17 @@ define([
 ], function($, _, Backbone, authenticationTemplate){
  var AuthenticationView = Backbone.View.extend({
 	 
-  el: $("#header"),
+  el: $("#authentication"),
   
   authenticationTemplate: _.template(authenticationTemplate),
   
-  initialize: function(){
-    _.bindAll(this, 'render'); 
+  initialize: function(){ 
     this.render();
   },
     
   render: function() {
-    $(this.el).html(this.authenticationTemplate());	 
+	
+    $(this.el).html(this.authenticationTemplate({authenticated: true, name: 'ago'}))
     
   }
     

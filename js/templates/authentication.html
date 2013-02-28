@@ -12,12 +12,15 @@
    |      |               | Scrittura codice          |
 -->
 
-<div>
-<form method="POST">
- <fieldset>
-  <label for="user">Username</label><input type="text" id="user" name="user" />
-  <label for="password">Password</label><input type="password" id="password" name="password" />
-  <input type="submit" value="Submit" />
- </fieldset>
-</form>
-</div>
+<% if (!authenticated) { %>
+  <form method="POST">
+    <fieldset>
+      <label for="user">Username</label><input type="text" id="user" name="user" />
+      <label for="password">Password</label><input type="password" id="password" name="password" />
+      <input type="submit" value="Submit" />
+    </fieldset>
+  </form>
+<% } %>
+<% if (authenticated) { %>
+  Ciao, <%= name %>
+<% } %>  
