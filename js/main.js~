@@ -33,7 +33,7 @@ require.config({
 
 });
 
-require(['view/AuthenticationView'], function(AuthenticationView){
+require(['view/authentication'], function(AuthenticationView){
   var aview = new AuthenticationView();
 
 });

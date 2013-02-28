@@ -1,5 +1,5 @@
 /*
- * Nome:untitled.java
+ * Nome:AuthenticationCommunication.js
  * Package: 
  * Autore:
  * Data:
@@ -12,11 +12,8 @@
  * |      |               |           |
  */
 
-
-public class untitled {
+function AuthenticationCommunication(){
 	
-	public static void main (String args[]) {
-		System.out.println("");
-	}
+	
+	
 }
-
