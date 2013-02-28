@@ -13,14 +13,12 @@
 -->
 
 <% if (!authenticated) { %>
-  <form method="POST">
-    <fieldset>
       <label for="user">Username</label><input type="text" id="user" name="user" />
       <label for="password">Password</label><input type="password" id="password" name="password" />
-      <input type="submit" value="Submit" />
-    </fieldset>
-  </form>
+      <button id='login'>Login</button>
 <% } %>
 <% if (authenticated) { %>
   Ciao, <%= name %>
+  <button id='logout'>Logout</button>
 <% } %>  
+
