@@ -16,12 +16,27 @@ require.config({
   paths: {
     jquery: 'libs/jquery/jquery-min',
     underscore: 'libs/underscore/underscore-min',
-    backbone: 'libs/backbone/backbone'
+    backbone: 'libs/backbone/backbone',
+    
+    storage: 'libs/backbone/backbone.localStorage',
+    text: 'libs/require/text'
+
+  },
+  
+  shim: {
+    underscore: {
+      exports: '_'
+    },
+
+    backbone: {
+      deps: [ 'underscore', 'jquery' ],
+      exports: 'Backbone'
+    }
   }
 
 });
 
-require(['view/AuthenticationView'], function(AuthenticationView){
+require(['view/authentication'], function(AuthenticationView){
   var aview = new AuthenticationView;
 });
 
