@@ -18,12 +18,15 @@ define([
  'text!templates/authentication.html'
 ], function($, _, Backbone, authenticationTemplate){
  var AuthenticationView = Backbone.View.extend({
+	 
   el: $("#header"),
+  
   authenticationTemplate: _.template(authenticationTemplate),
   
-     render: function() {
-      el.html(this.authenticationTemplate());     
-    }
+  render: function() {
+    $(this.el).html(this.authenticationTemplate({variabile:'blablabla'}));	 
+    return this;    
+  }
     
  });
 

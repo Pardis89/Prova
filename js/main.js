@@ -17,10 +17,7 @@ require.config({
     jquery: 'libs/jquery/jquery-min',
     underscore: 'libs/underscore/underscore-min',
     backbone: 'libs/backbone/backbone',
-    
-    storage: 'libs/backbone/backbone.localStorage',
     text: 'libs/require/text'
-
   },
   
   shim: {
@@ -37,6 +34,7 @@ require.config({
 });
 
 require(['view/authentication'], function(AuthenticationView){
-  var aview = new AuthenticationView;
+  var aview = new AuthenticationView();
+  aview.render();
 });
 

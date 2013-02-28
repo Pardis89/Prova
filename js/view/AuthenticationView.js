@@ -12,9 +12,9 @@
  * |      |               |           |
  */
 define([
- 'backbone',
  'jquery',
- 'underscore',  
+ 'underscore',
+ 'backbone',  
  'text!templates/AuthenticationTemplate.html'
 ], function($, _, Backbone, AuthenticationTemplate){
  var AuthenticationView = Backbone.View.extend({
