@@ -17,7 +17,7 @@ define([
  'jquery',
  'underscore',  
  'backbone',
- 'text!templates/AuthenticationTemplate.html'
+ 'text!templates/authentication.html'
 ], function($, _, Backbone, authenticationTemplate){
  var AuthenticationView = Backbone.View.extend({
 //si occupa di legare gli eventi ad oggetti del DOM

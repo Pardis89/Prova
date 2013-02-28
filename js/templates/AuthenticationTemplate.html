@@ -1,0 +1,24 @@
+<!--
+   Nome:AuthenticationTemplate.html
+   Package: 
+   Autore:
+   Data:
+   Versione:
+   
+   Modifiche:
+	__________________________________
+   | Data | Programmatore | Modifiche |
+   |______|_______________|___________|
+   |      |               | Scrittura codice          |
+-->
+
+<% if (!authenticated) { %>
+      <label for="user">Username</label><input type="text" id="user" name="user" />
+      <label for="password">Password</label><input type="password" id="password" name="password" />
+      <button id='login'>Login</button>
+<% } %>
+<% if (authenticated) { %>
+  Ciao, <%= name %>
+  <button id='logout'>Logout</button>
+<% } %>  
+
