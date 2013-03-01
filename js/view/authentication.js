@@ -42,7 +42,8 @@ define([
 //funzione che si occupa della connessione col server
   connect: function(){
 	  //esempio di come dovrebbe essere modificata la pagina dinamicamente
-	  $(this.el).html(this.authenticationTemplate({authenticated: true, name: this.$("#user").val()}))
+	  $(this.el).html(this.authenticationTemplate({authenticated: true, name: this.$("#user").val()}));
+	  alert('aefef');
 	  //dobbiamo aggiungere la parte di interfacciamento con il server
   },
  //funzione che si occupa di chiudere la sessione con il server

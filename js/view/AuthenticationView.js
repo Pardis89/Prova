@@ -17,8 +17,9 @@ define([
  'jquery',
  'underscore',  
  'backbone',
- 'text!templates/AuthenticationTemplate.html'
-], function($, _, Backbone, authenticationTemplate){
+ 'text!templates/AuthenticationTemplate.html',
+ 'communication/AuthenticationCommunication'
+], function($, _, Backbone, authenticationTemplate, AuthenticationCommunication){
  var AuthenticationView = Backbone.View.extend({
 //si occupa di legare gli eventi ad oggetti del DOM
 	 events: {
@@ -42,7 +43,11 @@ define([
 //funzione che si occupa della connessione col server
   connect: function(){
 	  //esempio di come dovrebbe essere modificata la pagina dinamicamente
-	  $(this.el).html(this.authenticationTemplate({authenticated: true, name: this.$("#user").val()}))
+	  var user = this.$("#user").val();
+	  var pass = this.$("#password").val();
+	  var acomm = new AuthenticationCommunication();
+	  if(acomm.checkCredentials(user, pass))
+	    $(this.el).html(this.authenticationTemplate({authenticated: true, name: user}));
 	  //dobbiamo aggiungere la parte di interfacciamento con il server
   },
  //funzione che si occupa di chiudere la sessione con il server
@@ -54,3 +59,5 @@ define([
 
  return AuthenticationView;
 });
+
+
