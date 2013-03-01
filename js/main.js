@@ -1,5 +1,5 @@
 /*
- * Nome:untitled.js
+ * Nome:main.js
  * Package: 
  * Autore:
  * Data:
@@ -10,8 +10,8 @@
  * | Data | Programmatore | Modifiche |
  * +------+---------------+-----------+
  * |      |               | Scrittura codice          |
- */
-
+ * |      |               | Inserite require  con le tre classi view iniziali |
+*/
 require.config({
   paths: {
     jquery: 'libs/jquery/jquery-min',
@@ -33,8 +33,9 @@ require.config({
 
 });
 
-require(['view/AuthenticationView'], function(AuthenticationView){
+require(['view/AuthenticationView'/*, 'view/ContactsView'*/], function(AuthenticationView/*, ContactsView*/){
   var aview = new AuthenticationView();
+//  var cview = new ContactsView();
 
 });
 

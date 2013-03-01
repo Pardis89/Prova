@@ -1,0 +1,25 @@
+<!--
+   Nome:untitled.html
+   Package: 
+   Autore:
+   Data:
+   Versione:
+   
+   Modifiche:
+    __________________________________
+   | Data | Programmatore | Modifiche |
+   |______|_______________|___________|
+   |      |               |           |
+-->
+<% if(fromIP){ %>
+  <label for="ip">Inserisci l'indirizzo IP che vuoi contattare:</label>
+  <input type="text" name="ip" id="ip" />
+  <button id= "startChat">Inizia chat</button>  
+<% } else { %>
+  <h2><%= contact %></h2>
+  <button id= "sendVideoText">Invia un videomessaggio</button> 
+<% } %>
+
+<button id="call">Chiama</button>
+<button id="video">Videochiama</button>
+<input type="checkbox" name="record" id="record" >Registra la chiamata
