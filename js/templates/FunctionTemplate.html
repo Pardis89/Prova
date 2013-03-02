@@ -11,12 +11,12 @@
    |______|_______________|___________|
    |      |               |           |
 -->
-<% if(fromIP){ %>
+<% if(!IP){ %>
   <label for="ip">Inserisci l'indirizzo IP che vuoi contattare:</label>
   <input type="text" name="ip" id="ip" />
   <button id= "startChat">Inizia chat</button>  
 <% } else { %>
-  <h2><%= contact %></h2>
+  <h2><%= username %></h2>
   <button id= "sendVideoText">Invia un videomessaggio</button> 
 <% } %>
 

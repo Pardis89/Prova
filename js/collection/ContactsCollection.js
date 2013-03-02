@@ -13,14 +13,17 @@
  */
 
 define([
- 'jquery',
  'underscore',  
  'backbone',
+ 'storage', 
  'model/ContactModel'
-], function($, _, Backbone, ContactModel){
+], function( _, Backbone, Store, ContactModel){
   var ContactsCollection = Backbone.Collection.extend({
+
     model: ContactModel,
+ //PER ORA LO METTO NEL LOCAL STORAGE SOTTO IL NAMESPACE MyTalk
+	localStorage: new Store("MyTalk")
     
-  });
-  return new ContactsCollection;
+ });
+  return new ContactsCollection();
 });

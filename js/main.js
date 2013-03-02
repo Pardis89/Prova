@@ -17,7 +17,9 @@ require.config({
     jquery: 'libs/jquery/jquery-min',
     underscore: 'libs/underscore/underscore-min',
     backbone: 'libs/backbone/backbone',
-    text: 'libs/require/text'
+    text: 'libs/require/text',
+//TEMPORALE FINCHE NON TROVO COME SALVARLO IN LOCALE
+    storage: 'libs/backbone/backbone.localStorage'
   },
   
   shim: {
@@ -33,9 +35,10 @@ require.config({
 
 });
 
-require(['view/AuthenticationView'/*, 'view/ContactsView'*/], function(AuthenticationView/*, ContactsView*/){
+require(['view/AuthenticationView', 'view/TmpView', 'collection/ContactsCollection'], function(AuthenticationView, TmpView,ContactsCollection){
   var aview = new AuthenticationView();
-//  var cview = new ContactsView();
+  var tview = new TmpView({collection: ContactsCollection});
+
 
 });
 

@@ -16,28 +16,28 @@ define([
  'jquery',
  'underscore',  
  'backbone',
- 'text!templates/ContactsTemplate.html'
-], function($, _, Backbone, ContactsTemplate){
+ 'text!templates/ContactsTemplate.html',
+ 'view/FunctionsView'
+], function($, _, Backbone, ContactsTemplate, FunctionsView){
  var ContactsView = Backbone.View.extend({
-	TagName: 'li',
     template: _.template(ContactsTemplate),
     
-    event:{
-		"click div.contact" : "view"
+    events:{
+		"click li.contact" : "view"
 	},
+	
 //Per ora rendo sempre visibili dei contatti:
-  initialize: function(){
-    _.bindAll(this, 'render'); 
-    this.render();
-  },
   render: function() {
-    $(this.el).html(this.template({username: 'ago'}))
+    this.$el.html(this.template(this.model.toJSON()));
+	return this;
   },
 // Su temp
 
-	view:function(){
-		var fview= new FunctionView('giacomino');
+	view : function(ContactModel){
+		var fview= new FunctionsView({model: this.model});
+
 	}
+
 }); 
   return ContactsView;
 });

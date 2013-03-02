@@ -20,7 +20,7 @@ define([
  'text!templates/FunctionTemplate.html'
 ], function($, _, Backbone, FunctionTemplate){
   var FunctionView = Backbone.View.extend({
-	  
+  
 //si occupa di legare gli eventi ad oggetti del DOM
     events:{
 		'click button#startChat':'startChat',
@@ -37,19 +37,15 @@ define([
     
 //funzione di inizializzazione dell'oggetto
   initialize: function(contact){
-	this.contact=contact;
     _.bindAll(this, 'render'); 
     this.render();
   },
   
  //funzione che effettua la scrittura della struttura della pagina
   render: function() {
-	if(contact==""){
-		$(this.el).html(this.authenticationTemplate({fromIP: true}))
-	}else{
-		$(this.el).html(this.authenticationTemplate({fromIP: false, contact: this.contact}))
-	}
-  },
+		$(this.el).html(this.template(this.model.toJSON()))
+  }
 });
 return FunctionView;
+
 });
