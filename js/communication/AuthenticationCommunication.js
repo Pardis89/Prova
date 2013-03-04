@@ -19,8 +19,11 @@ define(function(){
 	//metodo per controllare la correttezza delle credenziali inserite	
 	AuthenticationCommunication.prototype.checkCredentials = function(user, pass) {
 	  //funzione dummy - da implementare la connessione con il server
-	  if ((!(user == ''))&&(!(pass == '')))//se i campi username e password sono entrambi pieni
-	    return true;					   //restituisce vero
+	  if ((!(user == ''))&&(!(pass == ''))) //se i campi username e password sono entrambi pieni
+	    return {ans:true, nome: "pino", cognome:"gino"};						//restituisce vero
+		
+		
+	  					   
 	};
   }
   return AuthenticationCommunication;

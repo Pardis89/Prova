@@ -13,7 +13,7 @@ define([
     
     initialize:function(){
 		_.bindAll(this, 'render'); 
-//		this.render();
+	//	this.render();
 		this.collection.fetch();
 		this.viewContacts();
 
@@ -31,10 +31,10 @@ define([
 //"Creo la lista contatti in locale" sarà da mettere nel AuthenticationView e da prendere i dati dal server
 	newAttributes: function() {
       return {
-			username: 'Ago', 
-			name: 'Agostino', 
-			surname: 'La Bruna', 
-			IP:'0.0.0.2'
+			username: 'Liquid90', 
+			name: 'Giacomo', 
+			surname: 'Bain', 
+			IP:'0.0.0.3'
 		};
     },
    

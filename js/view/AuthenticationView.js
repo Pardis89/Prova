@@ -1,5 +1,5 @@
 /*
- * Nome:authentication.js
+ * Nome:AuthenticationView.js
  * Package: 
  * Autore:
  * Data:
@@ -24,7 +24,8 @@ define([
 //si occupa di legare gli eventi ad oggetti del DOM
 	 events: {
       'click button#login': 'connect',
-      'click button#logout': 'disconnect'
+      'click button#logout': 'disconnect',
+      'click button#dati':'visualizza'
     },
 //indica in quale parte del DOM gestirà 
   el: $("#authentication"),
@@ -46,13 +47,27 @@ define([
 	  var user = this.$("#user").val();
 	  var pass = this.$("#password").val();
 	  var acomm = new AuthenticationCommunication();
-	  if(acomm.checkCredentials(user, pass))
-	    $(this.el).html(this.authenticationTemplate({authenticated: true, name: user}));
+	  var risposta=acomm.checkCredentials(user, pass);
+	  if(risposta.ans)
+	  {
+		  alert(this.model.get('username'));
+		 this.model.set({
+			    username: user,
+				password: pass,
+				name: risposta.nome,
+				surname: risposta.cognome
+			});
+	    $(this.el).html(this.authenticationTemplate({authenticated: true, name: this.UserModel.get("username")}));
+		
+		}
 	  //dobbiamo aggiungere la parte di interfacciamento con il server
   },
  //funzione che si occupa di chiudere la sessione con il server
   disconnect: function(){
 	  $(this.el).html(this.authenticationTemplate({authenticated: false}))
+  },
+  visualizza: function(){
+	  $(this.el).html(this.authenticationTemplate({authenticated: true, name: this.UserModel.get("password")}));
   }  
   
  });
