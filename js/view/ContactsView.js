@@ -18,7 +18,7 @@ define([
 		'click button#conference' : 'StartConference'
 	},
     initialize:function(){
-		_.bindAll(this, 'render'); 
+		_.bindAll(this, 'render', 'unrender'); 
 		this.$el.html(this.template({logged: false}));		
 	},
 
@@ -31,6 +31,8 @@ define([
 		this.collection.fetch();
 		$(this.el).html(this.template({logged: false}));
 		this.destroyContacts();
+		var pippo;
+		var fview= new FunctionsView({Form: pippo});
 	},
 	viewContact: function(ContactModel){
 			var c = new ContactView({dom : "sidebar", model: ContactModel});
@@ -39,9 +41,11 @@ define([
 		
 	viewContacts: function(){
 		this.collection.each(this.viewContact);
+		
 	},
 	destroyContacts: function(){
 		this.collection.each(this.destroyContact);
+		
 	},
 	
 	destroyContact: function(ContactModel){
