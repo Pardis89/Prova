@@ -17,7 +17,7 @@ define([
  'jquery',
  'underscore',  
  'backbone',
- 'text!templates/FunctionTemplate.html'
+ 'text!templates/FunctionTemplate.html',
 ], function($, _, Backbone, FunctionTemplate){
   var FunctionView = Backbone.View.extend({
  //si occupa di legare gli eventi ad oggetti del DOM
@@ -40,11 +40,12 @@ define([
 //funzione che effettua la scrittura della struttura della pagina
   render: function(){
     if(typeof this.model == "undefined"){
-		 $("#content").html(this.template({From: this.options.From}));
+		$("#content").html(this.template({From: this.options.From}));
 	}else{
-	  $("#content").html(this.template(this.model.toJSON()));
+		$("#content").html(this.template(this.model.toJSON()));
 	}
   },
+    
   startChat: function(){},
   sendVideoText:function(){},
   call:function(){},

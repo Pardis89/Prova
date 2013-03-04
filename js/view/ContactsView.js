@@ -5,7 +5,7 @@ define([
  'underscore',  
  'backbone',
  'view/ContactView',
-  'view/FunctionsView',
+ 'view/FunctionsView',
  'text!templates/ContactsTemplate.html',
  'collection/ContactsCollection'
 ], function($, _, Backbone, ContactView, FunctionsView,ContactsTemplate, ContactsCollection){
@@ -46,7 +46,15 @@ define([
 	},
     StartConference: function(){
 		var fview= new FunctionsView({From: "Conf"});
+		this.collection.fetch();
+		this.collection.each(this.listContacts);
+	},
+	
+	listContacts: function(ContactModel){
+		var c =new ContactView({dom : "", model: ContactModel});
+		this.$("#optionContacts").append(c.render().el);
 	}
+
     
 });
   return ContactsView;

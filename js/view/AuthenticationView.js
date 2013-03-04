@@ -60,7 +60,7 @@ define([
 				surname: answer.surname
 			});
 	    $(this.el).html(this.authenticationTemplate({authenticated: true, name: this.UserModel.toJSON().username}));
-			this.collection.fetch();
+
 // visione dei contatti	
 			cview.render();
 		}

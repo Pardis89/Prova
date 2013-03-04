@@ -25,14 +25,12 @@ define([
     events:{
 		"click li.contact" : "view"
 	},
-	
 //Per ora rendo sempre visibili dei contatti:
-  render: function() {
+  render: function(){
     this.$el.html(this.template({dom: this.options.dom, username: this.model.toJSON().username}));   
 	return this;
   },
 // Su temp
-
 	view : function(ContactModel){
 		var fview= new FunctionsView({model: this.model});
 	}
