@@ -18,8 +18,9 @@ define([
  'underscore',  
  'backbone',
  'text!templates/AuthenticationTemplate.html',
- 'communication/AuthenticationCommunication'
-], function($, _, Backbone, authenticationTemplate, AuthenticationCommunication){
+ 'communication/AuthenticationCommunication',
+ 'model/UserModel'
+], function($, _, Backbone, authenticationTemplate, AuthenticationCommunication,UserModel){
  var AuthenticationView = Backbone.View.extend({
 //si occupa di legare gli eventi ad oggetti del DOM
 	 events: {
@@ -47,17 +48,16 @@ define([
 	  var user = this.$("#user").val();
 	  var pass = this.$("#password").val();
 	  var acomm = new AuthenticationCommunication();
-	  var risposta=acomm.checkCredentials(user, pass);
-	  if(risposta.ans)
+	  var answer=acomm.checkCredentials(user, pass);
+	  if(answer.ans)
 	  {
-		  alert(this.model.get('username'));
-		 this.model.set({
+		 this.UserModel=new UserModel({
 			    username: user,
 				password: pass,
-				name: risposta.nome,
-				surname: risposta.cognome
+				name: 'gino',
+				surname: 'scemo'
 			});
-	    $(this.el).html(this.authenticationTemplate({authenticated: true, name: this.UserModel.get("username")}));
+	    $(this.el).html(this.authenticationTemplate({authenticated: true, name: this.UserModel.toJSON().username}));
 		
 		}
 	  //dobbiamo aggiungere la parte di interfacciamento con il server
