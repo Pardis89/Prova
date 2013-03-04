@@ -37,11 +37,10 @@ define([
 			IP:'0.0.0.2'
 		};
     },
-
+   
 	render: function(){
 		this.collection.create(this.newAttributes());
-	}
-	
+	}	
     
 });
   return TmpView;

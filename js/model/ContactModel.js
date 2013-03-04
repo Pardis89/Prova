@@ -22,16 +22,7 @@ define([
 		  surname: '',
 		  IP: '0.0.0.0'
 	  },
-	  
-	 initialize: function() {
-/*		this.set({
-			username: this.options.username, 
-			name: this.options.name, 
-			surname: this.options.surname, 
-			IP: this.options.IP, 
-		});
-*/	}
-    
+	    
 });
     return ContactModel;
 });

@@ -22,8 +22,9 @@ define([
 
     model: ContactModel,
  //PER ORA LO METTO NEL LOCAL STORAGE SOTTO IL NAMESPACE MyTalk
-	localStorage: new Store("MyTalk")
-    
+//	sessionStorage: new Store("MyTalk")
+  localStorage: new Store("MyTalk", "session"),  
+	
  });
   return new ContactsCollection();
 });

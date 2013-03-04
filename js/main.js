@@ -39,6 +39,5 @@ require(['view/AuthenticationView', 'view/TmpView', 'collection/ContactsCollecti
   var aview = new AuthenticationView();
   var tview = new TmpView({collection: ContactsCollection});
 
-
 });
 
