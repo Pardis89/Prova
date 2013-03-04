@@ -42,10 +42,10 @@ define([
 	},
 	
 	callIP:function(){
-		var fview= new FunctionsView();
+		var fview= new FunctionsView({From: "IP"});
 	},
     StartConference: function(){
-		var fview= new FunctionsView();
+		var fview= new FunctionsView({From: "Conf"});
 	}
     
 });

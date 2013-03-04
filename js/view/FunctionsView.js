@@ -39,16 +39,15 @@ define([
   },
 //funzione che effettua la scrittura della struttura della pagina
   render: function(){
-
     if(typeof this.model == "undefined"){
-	  $("#content").html(this.template({From: "IP"}));
+		 $("#content").html(this.template({From: this.options.From}));
 	}else{
 	  $("#content").html(this.template(this.model.toJSON()));
 	}
   },
   startChat: function(){},
   sendVideoText:function(){},
-  call:function(){ alert(username);},
+  call:function(){},
   video:function(){},
   record:function(){}
 });

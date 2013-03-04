@@ -12,7 +12,7 @@
    |      |               |           |
 -->
 <% if(typeof From !="undefined"){ %>
-	<% if(typeof From =="IP"){ %>
+	<% if(From =="IP"){ %>
 		<label for="ip">Inserisci l'indirizzo IP che vuoi contattare:</label>
 		<input type="text" name="ip" id="ip" />
 		<button id= "startChat">Inizia chat</button>  
@@ -21,7 +21,7 @@
 		<input type="checkbox" name="record" id="record" >Registra la chiamata
 	<% }else{ %>
 		<ul>
-
+	
 		</ul>
 	<% } %>
 <% } else { %>
