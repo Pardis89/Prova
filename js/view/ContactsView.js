@@ -27,6 +27,11 @@ define([
 		$(this.el).html(this.template({logged: true}));
 		this.viewContacts();
 	},
+	unrender: function (){
+		this.collection.fetch();
+		$(this.el).html(this.template({logged: false}));
+		this.viewContacts();
+	},
 	viewContact: function(ContactModel){
 			var c = new ContactView({dom : "sidebar", model: ContactModel});
 			this.$("#contacts").append(c.render().el);

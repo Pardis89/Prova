@@ -71,6 +71,7 @@ define([
  //funzione che si occupa di chiudere la sessione con il server
   disconnect: function(){
 	  $(this.el).html(this.authenticationTemplate({authenticated: false}))
+	  cview.unrender();
   },
   visualizza: function(){
 	  $(this.el).html(this.authenticationTemplate({authenticated: true, name: this.UserModel.get("password")}));
