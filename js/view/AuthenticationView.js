@@ -31,12 +31,13 @@ define([
     },
 //indica in quale parte del DOM gestirà 
   el: $("#authentication"),
-  
+  cview: "",
   authenticationTemplate: _.template(authenticationTemplate),
 //funzione di inizializzazione dell'oggetto
   initialize: function(){
     _.bindAll(this, 'render'); 
     this.render();
+    cview = new ContactsView();
   },
 //funzione che effettua la scrittura della struttura della pagina
   render: function() {
@@ -61,8 +62,7 @@ define([
 	    $(this.el).html(this.authenticationTemplate({authenticated: true, name: this.UserModel.toJSON().username}));
 			this.collection.fetch();
 // visione dei contatti	
-			var Contacts = new ContactsView({collection: this.collection});
-			Contacts.render();
+			cview.render();
 		}
 			  //dobbiamo aggiungere la parte di interfacciamento con il server
 	 },

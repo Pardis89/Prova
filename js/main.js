@@ -37,7 +37,7 @@ require.config({
 
 require(['view/AuthenticationView', 'view/ContactsView', 'collection/ContactsCollection'], function(AuthenticationView, ContactsView,ContactsCollection){
   var aview = new AuthenticationView({collection: ContactsCollection});
-  var cview = new ContactsView();
+
 
 });
 
