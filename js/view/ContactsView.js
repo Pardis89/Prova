@@ -30,7 +30,7 @@ define([
 	unrender: function (){
 		this.collection.fetch();
 		$(this.el).html(this.template({logged: false}));
-		this.viewContacts();
+		this.destroyContacts();
 	},
 	viewContact: function(ContactModel){
 			var c = new ContactView({dom : "sidebar", model: ContactModel});
@@ -39,6 +39,14 @@ define([
 		
 	viewContacts: function(){
 		this.collection.each(this.viewContact);
+	},
+	destroyContacts: function(){
+		this.collection.each(this.destroyContact);
+	},
+	
+	destroyContact: function(ContactModel){
+			var c = {model: ContactModel};
+			c.model.destroy();
 	},
 	
 	callIP:function(){
