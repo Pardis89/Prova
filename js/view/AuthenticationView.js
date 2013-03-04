@@ -19,8 +19,9 @@ define([
  'backbone',
  'text!templates/AuthenticationTemplate.html',
  'communication/AuthenticationCommunication',
- 'model/UserModel'
-], function($, _, Backbone, authenticationTemplate, AuthenticationCommunication,UserModel){
+ 'model/UserModel',
+  'view/ContactsView',
+], function($, _, Backbone, authenticationTemplate, AuthenticationCommunication,UserModel, ContactsView){
  var AuthenticationView = Backbone.View.extend({
 //si occupa di legare gli eventi ad oggetti del DOM
 	 events: {
@@ -54,14 +55,19 @@ define([
 		 this.UserModel=new UserModel({
 			    username: user,
 				password: pass,
-				name: 'gino',
-				surname: 'scemo'
+				name: answer.name,
+				surname: answer.surname
 			});
 	    $(this.el).html(this.authenticationTemplate({authenticated: true, name: this.UserModel.toJSON().username}));
-		
+			this.collection.fetch();
+// visione dei contatti	
+			var Contacts = new ContactsView({collection: this.collection});
+			Contacts.render();
 		}
-	  //dobbiamo aggiungere la parte di interfacciamento con il server
-  },
+			  //dobbiamo aggiungere la parte di interfacciamento con il server
+	 },
+
+		
  //funzione che si occupa di chiudere la sessione con il server
   disconnect: function(){
 	  $(this.el).html(this.authenticationTemplate({authenticated: false}))

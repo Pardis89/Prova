@@ -35,9 +35,9 @@ require.config({
 
 });
 
-require(['view/AuthenticationView', 'view/TmpView', 'collection/ContactsCollection'], function(AuthenticationView, TmpView,ContactsCollection){
-  var aview = new AuthenticationView();
-  var tview = new TmpView({collection: ContactsCollection});
+require(['view/AuthenticationView', 'view/ContactsView', 'collection/ContactsCollection'], function(AuthenticationView, ContactsView,ContactsCollection){
+  var aview = new AuthenticationView({collection: ContactsCollection});
+  var cview = new ContactsView();
 
 });
 

@@ -11,18 +11,15 @@
    |______|_______________|___________|
    |      |               |           |
 -->
-<%if(username==""){ %>
-	  <button id= "callIP">Chiama un indirizzo IP</button>  
-<%}else{ %>
-	<% if(username=="IP"){ %>
+<% if(username=="IP"){ %>
 	  <label for="ip">Inserisci l'indirizzo IP che vuoi contattare:</label>
 	  <input type="text" name="ip" id="ip" />
 	  <button id= "startChat">Inizia chat</button>  
-	<% } else { %>
+<% } else { %>
 	  <h2><%= username %></h2>
 	  <button id= "sendVideoText">Invia un videomessaggio</button> 
-	<% } %>
+<% } %>
 	<button id="call">Chiama</button>
 	<button id="video">Videochiama</button>
 	<input type="checkbox" name="record" id="record" >Registra la chiamata
-<%}%>
+

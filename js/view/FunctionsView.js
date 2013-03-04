@@ -22,7 +22,6 @@ define([
   var FunctionView = Backbone.View.extend({
  //si occupa di legare gli eventi ad oggetti del DOM
     events:{
-		'click button#callIP' : 'callIP',
 		'click button#startChat':'startChat',
 		'click button#sendVideoText':'sendVideoText',
 		'click button#call':'call',
@@ -42,13 +41,10 @@ define([
   render: function(){
 
     if(typeof this.model == "undefined"){
-	  $("#sidebar").append(this.template({username: ""}));
+	  $("#content").html(this.template({username: "IP"}));
 	}else{
 	  $("#content").html(this.template(this.model.toJSON()));
 	}
-  },
-  callIP: function(){
-	  $("#content").html(this.template({username: "IP"}));
   },
   startChat: function(){},
   sendVideoText:function(){},

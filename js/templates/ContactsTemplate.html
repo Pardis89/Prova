@@ -6,10 +6,14 @@
    Versione:
    
    Modifiche:
-    __________________________________
+   +------+---------------+-----------+
    | Data | Programmatore | Modifiche |
-   |______|_______________|___________|
+   +------+---------------+-----------+
    |      |               |           |
 -->
 
-<li class="contact"><%= username %></li>
+<button id= "callIP">Chiama un indirizzo IP</button>  
+<% if(logged){ %>
+<ul id="contacts"></ul>
+<button id= "conference">Video conferenza</button>  
+<% } %>

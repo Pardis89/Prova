@@ -1,42 +1,44 @@
-/*
- * Nome:untitled.js
- * Package: 
- * Autore:
- * Data:
- * Versione:
- * 
- * Modifiche:
- * +------+---------------+-----------+
- * | Data | Programmatore | Modifiche |
- * +------+---------------+-----------+
- * |      |               |           |
- */
+//FILE TEMPORANEO PER PROVA!!!!
 
 define([
  'jquery',
  'underscore',  
  'backbone',
- 'text!templates/ContactsTemplate.html',
- 'view/FunctionsView'
-], function($, _, Backbone, ContactsTemplate, FunctionsView){
- var ContactsView = Backbone.View.extend({
+ 'view/ContactView',
+  'view/FunctionsView',
+ 'text!templates/ContactsTemplate.html'
+], function($, _, Backbone, ContactView, FunctionsView,ContactsTemplate){
+  var ContactsView = Backbone.View.extend({
+    el: $("#sidebar"),
     template: _.template(ContactsTemplate),
-    
     events:{
-		"click li.contact" : "view"
+		'click button#callIP' : 'callIP'
+	},
+    initialize:function(){
+		_.bindAll(this, 'render'); 
+		this.$el.html(this.template({logged: false}));		
+	},
+
+	render: function (){
+		this.collection.fetch();
+		this.viewContacts();
+	},
+	viewContact: function(ContactModel){
+			var c = new ContactView({model: ContactModel});
+			this.$("#contacts").append(c.render().el);
+			this.$('#sidebar').html(this.template({logged: true}));
+	},
+		
+	viewContacts: function(){
+		this.collection.each(this.viewContact);
 	},
 	
-//Per ora rendo sempre visibili dei contatti:
-  render: function() {
-    this.$el.html(this.template(this.model.toJSON()));   
-	return this;
-  },
-// Su temp
-
-	view : function(ContactModel){
-		var fview= new FunctionsView({model: this.model});
+	callIP:function(){
+		var fview= new FunctionsView();
 	}
-
-}); 
+  
+    
+});
   return ContactsView;
 });
+
