@@ -24,6 +24,11 @@ html, body{
 #header h1{
  text-align:center;
 }
+#header a{
+ position: absolute;
+ top:1em;
+ right:1em;
+}
 #sidebar{
  float:left;
  width:10%;
@@ -35,13 +40,15 @@ ul{
  list-style:none inside;
  padding:0.1em;
 }
-ul li{
+.contact{
  padding: 0 1em 0 1em;
  margin:0.5em;
  color:#0011dd;
 }
 #content{
  padding:1em;
+ float:right;
+ width:78%;
 }
 #content #ip{
  display:block;
