@@ -5,7 +5,8 @@ define([
  'underscore',  
  'backbone',
  'view/ContactsView',
-], function($, _, Backbone, ContactsView){
+ 'view/FunctionsView',
+], function($, _, Backbone, ContactsView, FunctionsView){
 
   var TmpView = Backbone.View.extend({
     el: $("#sidebar"),
@@ -25,13 +26,14 @@ define([
 		
 	viewContacts: function(){
 		this.collection.each(this.viewContact);
+		var f =new FunctionsView();
 	},
 //"Creo la lista contatti in locale" sarà da mettere nel AuthenticationView e da prendere i dati dal server
 	newAttributes: function() {
       return {
-			username: 'Liquid90', 
-			name: 'Giacomo', 
-			surname: 'Bain', 
+			username: 'Ago', 
+			name: 'Agostino', 
+			surname: 'La Bruna', 
 			IP:'0.0.0.2'
 		};
     },

@@ -28,14 +28,13 @@ define([
 	
 //Per ora rendo sempre visibili dei contatti:
   render: function() {
-    this.$el.html(this.template(this.model.toJSON()));
+    this.$el.html(this.template(this.model.toJSON()));   
 	return this;
   },
 // Su temp
 
 	view : function(ContactModel){
 		var fview= new FunctionsView({model: this.model});
-
 	}
 
 }); 

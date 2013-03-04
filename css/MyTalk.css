@@ -1,0 +1,47 @@
+/*
+ * Nome:untitled.css
+ * Package: 
+ * Autore:
+ * Data:
+ * Versione:
+ * 
+ * Modifiche:
+ * +------+---------------+-----------+
+ * | Data | Programmatore | Modifiche |
+ * +------+---------------+-----------+
+ * |      |               |           |
+ */
+
+html, body{
+ margin:0.2em; 
+ padding:0; 
+}
+#header{
+ padding-left:1em;
+ padding-bottom:2em;
+ border-bottom: 0.1em solid #000000;
+}
+#header h1{
+ text-align:center;
+}
+#sidebar{
+ float:left;
+ width:18%;
+ margin:0;
+}
+ul{
+ list-style:none inside;
+ padding:0.1em;
+}
+ul li{
+ padding: 0 1em 0 1em;
+ margin:0.5em;
+ color:#0011dd;
+}
+#content{
+ padding:1em;
+}
+#content #ip{
+ display:block;
+ margin:1em;
+}
