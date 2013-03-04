@@ -41,7 +41,7 @@ define([
   render: function(){
 
     if(typeof this.model == "undefined"){
-	  $("#content").html(this.template({username: "IP"}));
+	  $("#content").html(this.template({From: "IP"}));
 	}else{
 	  $("#content").html(this.template(this.model.toJSON()));
 	}

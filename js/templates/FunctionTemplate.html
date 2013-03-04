@@ -11,15 +11,23 @@
    |______|_______________|___________|
    |      |               |           |
 -->
-<% if(username=="IP"){ %>
-	  <label for="ip">Inserisci l'indirizzo IP che vuoi contattare:</label>
-	  <input type="text" name="ip" id="ip" />
-	  <button id= "startChat">Inizia chat</button>  
-<% } else { %>
-	  <h2><%= username %></h2>
-	  <button id= "sendVideoText">Invia un videomessaggio</button> 
-<% } %>
-	<button id="call">Chiama</button>
-	<button id="video">Videochiama</button>
-	<input type="checkbox" name="record" id="record" >Registra la chiamata
+<% if(typeof From !="undefined"){ %>
+	<% if(typeof From =="IP"){ %>
+		<label for="ip">Inserisci l'indirizzo IP che vuoi contattare:</label>
+		<input type="text" name="ip" id="ip" />
+		<button id= "startChat">Inizia chat</button>  
+		<button id="call">Chiama</button>
+		<button id="video">Videochiama</button>
+		<input type="checkbox" name="record" id="record" >Registra la chiamata
+	<% }else{ %>
+		<ul>
 
+		</ul>
+	<% } %>
+<% } else { %>
+		<h2><%= username %></h2>
+		<button id= "sendVideoText">Invia un videomessaggio</button> 
+		<button id="call">Chiama</button>
+		<button id="video">Videochiama</button>
+		<input type="checkbox" name="record" id="record" >Registra la chiamata
+<% } %>

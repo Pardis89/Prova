@@ -11,5 +11,8 @@
    |______|_______________|___________|
    |      |               |           |
 -->
-
+<% if(dom=="sidebar"){%>
 <li class="contact"><%= username %></li>
+<%}else{%>
+<li><input type="checkbox" name=<%=username %> id=<%=username %> ><%=username %></li>
+<%}%>

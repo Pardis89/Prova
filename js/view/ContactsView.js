@@ -28,7 +28,7 @@ define([
 		this.viewContacts();
 	},
 	viewContact: function(ContactModel){
-			var c = new ContactView({model: ContactModel});
+			var c = new ContactView({dom : "sidebar", model: ContactModel});
 			this.$("#contacts").append(c.render().el);
 	},
 		

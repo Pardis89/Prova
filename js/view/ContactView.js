@@ -28,7 +28,7 @@ define([
 	
 //Per ora rendo sempre visibili dei contatti:
   render: function() {
-    this.$el.html(this.template(this.model.toJSON()));   
+    this.$el.html(this.template({dom: this.options.dom, username: this.model.toJSON().username}));   
 	return this;
   },
 // Su temp
