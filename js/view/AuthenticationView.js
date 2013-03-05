@@ -19,9 +19,10 @@ define([
  'backbone',
  'text!templates/AuthenticationTemplate.html',
  'communication/AuthenticationCommunication',
+ 'communication/ContactCommunication',
  'model/UserModel',
   'view/ContactsView',
-], function($, _, Backbone, authenticationTemplate, AuthenticationCommunication,UserModel, ContactsView){
+], function($, _, Backbone, authenticationTemplate, AuthenticationCommunication, ContactsCommunication, UserModel, ContactsView){
  var AuthenticationView = Backbone.View.extend({
 //si occupa di legare gli eventi ad oggetti del DOM
 	 events: {
@@ -60,6 +61,11 @@ define([
 				surname: answer.surname
 			});
 	    $(this.el).html(this.authenticationTemplate({authenticated: true, name: this.UserModel.toJSON().username}));
+
+	    var ccomm = new ContactsCommunication(this.collection);
+	    ccomm.fetchContacts();
+
+			this.collection.fetch();
 
 // visione dei contatti	
 			cview.render();

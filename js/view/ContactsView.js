@@ -31,8 +31,6 @@ define([
 		this.collection.fetch();
 		$(this.el).html(this.template({logged: false}));
 		this.destroyContacts();
-		var pippo;
-		var fview= new FunctionsView({Form: pippo});
 	},
 	viewContact: function(ContactModel){
 			var c = new ContactView({dom : "sidebar", model: ContactModel});
@@ -50,7 +48,9 @@ define([
 	
 	destroyContact: function(ContactModel){
 			var c = {model: ContactModel};
+			alert(c.model.username);
 			c.model.destroy();
+			
 	},
 	
 	callIP:function(){
