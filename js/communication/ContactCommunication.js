@@ -19,13 +19,21 @@ define(function(){
 	//metodo per ricevere i contatti
 	ContactCommunication.prototype.fetchContacts = function() {
 	  
-		collection.create({username: 'Liquid90', 
-			name: 'Giacomo', 
-			surname: 'Bain', 
-			IP:'0.0.0.3'});
-		
+		this.dummyContacts('pino1');
+		this.dummyContacts('pino2');
+		this.dummyContacts('pino3');
+		this.dummyContacts('pino4');
+		this.dummyContacts('pino5');
 	  					   
 	};
+	
+	ContactCommunication.prototype.dummyContacts = function(nome) {
+		collection.create({username: nome, 
+		name: 'Giacomo', 
+		surname: 'Bain', 
+		IP:'0.0.0.3'});
+	};
+	
   }
   return ContactCommunication;
 });

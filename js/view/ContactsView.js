@@ -28,28 +28,32 @@ define([
 		this.viewContacts();
 	},
 	unrender: function (){
-		this.collection.fetch();
 		$(this.el).html(this.template({logged: false}));
 		this.destroyContacts();
 	},
 	viewContact: function(ContactModel){
+
 			var c = new ContactView({dom : "sidebar", model: ContactModel});
 			this.$("#contacts").append(c.render().el);
 	},
 		
 	viewContacts: function(){
+		
 		this.collection.each(this.viewContact);
 		
 	},
 	destroyContacts: function(){
 		this.collection.each(this.destroyContact);
+		if(this.collection.length>0)
+		this.destroyContacts();
+		
 		
 	},
 	
 	destroyContact: function(ContactModel){
 			var c = {model: ContactModel};
-			alert(c.model.username);
 			c.model.destroy();
+			
 			
 	},
 	

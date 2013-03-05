@@ -25,6 +25,12 @@ define(function(){
 		
 	  					   
 	};
+	AuthenticationCommunication.prototype.signup = function(user, pass,name,surname) {
+	 return true
+		
+		
+	  					   
+	};
   }
   return AuthenticationCommunication;
 });

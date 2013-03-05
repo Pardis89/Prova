@@ -22,6 +22,7 @@ define([
 		  surname: '',
 		  IP: '0.0.0.0'
 	  },
+	
 	    
 });
     return ContactModel;
