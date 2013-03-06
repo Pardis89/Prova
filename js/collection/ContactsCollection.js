@@ -23,7 +23,11 @@ define([
     model: ContactModel,
  //PER ORA LO METTO NEL LOCAL STORAGE SOTTO IL NAMESPACE MyTalk
 //	sessionStorage: new Store("MyTalk")
-  localStorage: new Store("MyTalk", "session"),  
+  localStorage: new Store("MyTalk", "session"), 
+  
+  record: function() {
+      return this.filter(function(contact){ return contact.has('username'); });
+    }, 
 	
  });
   return new ContactsCollection();
