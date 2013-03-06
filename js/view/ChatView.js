@@ -17,8 +17,9 @@ define([
  'jquery',
  'underscore',  
  'backbone',
- 'text!templates/ChatTemplate.html'
-], function($, _, Backbone, ChatTemplate,TextMessageModel){
+ 'text!templates/ChatTemplate.html',
+ 'collection/TextMessagesCollection'
+], function($, _, Backbone, ChatTemplate, TextMessagesCollection){
  var ChatView = Backbone.View.extend({
 //si occupa di legare gli eventi ad oggetti del DOM
  events:{
@@ -27,19 +28,31 @@ define([
 //indica in quale parte del DOM gestirà 
   el : $("#chat"),
   ChatTemplate: _.template(ChatTemplate),
+  collection: TextMessagesCollection,
 //funzione di inizializzazione dell'oggetto
   initialize: function(){
-    _.bindAll(this, 'render'); 
+    _.bindAll(this, 'render', 'putMessages', 'putMessage'); 
     this.render();
   },
 //funzione che effettua la scrittura della struttura della pagina
   render: function() {
-    $(this.el).html(this.ChatTemplate({message: true, messages: this.model.toJSON().messages}))
+	 this.collection.fetch();
+	  this.putMessages();
+    $(this.el).html(this.ChatTemplate({end: true}))
     
   },
   
+  putMessages:function(){
+		this.collection.each(this.putMessage);
+  },
+  
+  putMessage:function(TextMessageModel){
+	  if(TextMessageModel.toJSON().recipient == this.model.toJSON().username)
+	  alert(TextMessageModel.toJSON().messages);
+	  $(this.el).append(this.ChatTemplate({end: false, messages:TextMessageModel.toJSON().messages}));
+  },
   send:function(){
-	  this.model.set({messages:this.$("#message").val()});
+	  this.collection.add({recipient:this.model.toJSON().username, messages:this.$("#message").val()})
 	  this.render();
   }
 //funzione che si occupa della connessione col server

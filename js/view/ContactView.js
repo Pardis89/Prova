@@ -23,10 +23,13 @@ define([
  var ContactView = Backbone.View.extend({
     template: _.template(ContactTemplate),
     
+    
+    
     events:{
 		"click li.contact" : "view"
 	},
 	fview:'',
+	fchat:'',
 	initialize:function(){
 		_.bindAll(this, 'render', 'view'); 
 	},
@@ -40,8 +43,10 @@ define([
 		if(this.fview=='')
 		{
 			this.fview=new FunctionsView({model:this.model});
+			this.fchat=new ChatView({model:this.model});
 		} else {
 			this.fview.render();
+			this.fchat.render();
 			}
 	}
 

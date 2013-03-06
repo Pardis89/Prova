@@ -7,9 +7,8 @@ define([
  'view/ContactView',
  'view/FunctionsView',
  'text!templates/ContactsTemplate.html',
- 'collection/ContactsCollection',
- 'collection/TextMessagesCollection'
-], function($, _, Backbone, ContactView, FunctionsView,ContactsTemplate, ContactsCollection, TextMessagesCollection){
+ 'collection/ContactsCollection'
+], function($, _, Backbone, ContactView, FunctionsView,ContactsTemplate, ContactsCollection){
   var ContactsView = Backbone.View.extend({
 	  
     el: $("#sidebar"),
@@ -17,9 +16,7 @@ define([
     template: _.template(ContactsTemplate),
     
     collection: ContactsCollection,
-
-    textcollection: TextMessagesCollection,
-
+    
     events:{
 		'click button#callIP' : 'callIP',
 		'click button#conference' : 'StartConference'
@@ -31,7 +28,7 @@ define([
 		//this.listenTo(this.collection, 'add', this.viewContacts);
 		//this.listenTo(this.collection, 'change', this.viewContacts);
         //this.listenTo(this.collection, 'reset', this.viewContacts);
-		this.listenTo(this.collection, 'all', this.render);
+		//this.listenTo(this.collection, 'all', this.render);
 		
 		this.$el.html(this.template({logged: false}));
 
@@ -62,12 +59,6 @@ define([
 	destroyContacts: function(){
 		_.each(this.collection.record(), function(contact){contact.clear();});
 	},
-	
-	/*destroyContact: function(ContactModel){
-			var c = {model: ContactModel};
-			c.model.destroy();
-			
-	},*/
 	
 	callIP:function(){
 		var fview= new FunctionsView({From: "IP"});
