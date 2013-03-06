@@ -45,11 +45,13 @@ define([
 	},
 	
 	viewContact: function(ContactModel){
+
 			var c = new ContactView({dom : "sidebar", model: ContactModel});
 			this.$("#contacts").append(c.render().el);
 	},
 		
 	viewContacts: function(){
+		
 		this.collection.each(this.viewContact);
 		
 	},
@@ -60,7 +62,6 @@ define([
 	
 	/*destroyContact: function(ContactModel){
 			var c = {model: ContactModel};
-			alert(c.model.username);
 			c.model.destroy();
 			
 	},*/
