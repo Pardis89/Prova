@@ -22,6 +22,10 @@ define([
 		  surname: '',
 		  IP: '0.0.0.0'
 	  },
+	  
+	clear: function() {
+      this.destroy();
+    }
 	    
 });
     return ContactModel;
