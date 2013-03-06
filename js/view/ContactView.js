@@ -18,16 +18,18 @@ define([
  'backbone',
  'text!templates/ContactTemplate.html',
  'view/FunctionsView',
- 'view/ChatView',
- 'model/TextMessageModel'
-], function($, _, Backbone, ContactTemplate, FunctionsView, ChatView, TextMessageModel){
+ 'view/ChatView'
+], function($, _, Backbone, ContactTemplate, FunctionsView, ChatView){
  var ContactView = Backbone.View.extend({
     template: _.template(ContactTemplate),
     
     events:{
 		"click li.contact" : "view"
 	},
-	var this.TextMessageModel=new TextMessageModel();
+	fview:'',
+	initialize:function(){
+		_.bindAll(this, 'render', 'view'); 
+	},
 //Per ora rendo sempre visibili dei contatti:
   render: function(){
     this.$el.html(this.template({dom: this.options.dom, username: this.model.toJSON().username}));   
@@ -35,9 +37,12 @@ define([
   },
 // Su temp
 	view : function(){
-		var fview= new FunctionsView({model: this.model});
-		
-		var chat=new ChatView({model: this.TextMessageModel});
+		if(this.fview=='')
+		{
+			this.fview=new FunctionsView({model:this.model});
+		} else {
+			this.fview.render();
+			}
 	}
 
 }); 

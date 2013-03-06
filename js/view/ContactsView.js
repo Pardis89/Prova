@@ -7,18 +7,20 @@ define([
  'view/ContactView',
  'view/FunctionsView',
  'text!templates/ContactsTemplate.html',
- 'collection/ContactsCollection'
-], function($, _, Backbone, ContactView, FunctionsView,ContactsTemplate, ContactsCollection){
+ 'collection/ContactsCollection',
+ 'collection/TextMessagesCollection'
+], function($, _, Backbone, ContactView, FunctionsView,ContactsTemplate, ContactsCollection, TextMessagesCollection){
   var ContactsView = Backbone.View.extend({
     el: $("#sidebar"),
     template: _.template(ContactsTemplate),
     collection: ContactsCollection,
+    textcollection: TextMessagesCollection,
     events:{
 		'click button#callIP' : 'callIP',
 		'click button#conference' : 'StartConference'
 	},
     initialize:function(){
-		_.bindAll(this, 'render', 'unrender'); 
+		_.bindAll(this, 'render', 'unrender', 'viewContact'); 
 		this.$el.html(this.template({logged: false}));		
 	},
 
@@ -32,8 +34,7 @@ define([
 		this.destroyContacts();
 	},
 	viewContact: function(ContactModel){
-
-			var c = new ContactView({dom : "sidebar", model: ContactModel});
+			var c = new ContactView({dom : "sidebar", model: ContactModel });
 			this.$("#contacts").append(c.render().el);
 	},
 		
