@@ -1,5 +1,5 @@
 /*
- * Nome:AuthenticationView.js
+ * Nome:ChatView.js
  * Package: 
  * Autore:
  * Data:
@@ -47,13 +47,13 @@ define([
   },
   
   putMessage:function(TextMessageModel){
-	  if(TextMessageModel.toJSON().recipient == this.model.toJSON().username)
-	  alert(TextMessageModel.toJSON().messages);
-	  $(this.el).append(this.ChatTemplate({end: false, messages:TextMessageModel.toJSON().messages}));
+	  //if(TextMessageModel.toJSON().recipient == this.model.toJSON().username)
+	  //alert(TextMessageModel.toJSON().messages);
+	  //$(this.el).append(this.ChatTemplate({end: false, messages:TextMessageModel.toJSON().messages}));
   },
   send:function(){
-	  this.collection.add({recipient:this.model.toJSON().username, messages:this.$("#message").val()})
-	  this.render();
+	  //this.collection.add({recipient:this.model.toJSON().username, messages:this.$("#message").val()})
+	  //this.render();
   }
 //funzione che si occupa della connessione col server
   

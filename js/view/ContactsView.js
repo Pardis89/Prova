@@ -1,4 +1,16 @@
-//FILE TEMPORANEO PER PROVA!!!!
+/*
+ * Nome:ConactsView.js
+ * Package: 
+ * Autore:
+ * Data:
+ * Versione:
+ * 
+ * Modifiche:
+ * +------+---------------+-----------+
+ * | Data | Programmatore | Modifiche |
+ * +------+---------------+-----------+
+ * |      |               | Scrittura codice          |
+ */
 
 define([
  'jquery',
@@ -6,9 +18,10 @@ define([
  'backbone',
  'view/ContactView',
  'view/FunctionsView',
+ 'view/ChatView',
  'text!templates/ContactsTemplate.html',
  'collection/ContactsCollection'
-], function($, _, Backbone, ContactView, FunctionsView,ContactsTemplate, ContactsCollection){
+], function($, _, Backbone, ContactView, FunctionsView, ChatView, ContactsTemplate, ContactsCollection){
   var ContactsView = Backbone.View.extend({
 	  
     el: $("#sidebar"),
@@ -41,22 +54,25 @@ define([
 	
 	unrender: function (){
 		$(this.el).html(this.template({logged: false}));
-		var fview= new FunctionsView({From: ''});
 		this.destroyContacts();
 	},
 	
 	viewContact: function(ContactModel){
-			var c = new ContactView({dom : "sidebar", model: ContactModel });
-			this.$("#contacts").append(c.render().el);
+			var contact_view = new ContactView({dom : "sidebar", model: ContactModel });
+			this.$("#contacts").append(contact_view.render().el);
 	},
 		
-	viewContacts: function(){
-		
-		this.collection.each(this.viewContact);
-		
+	viewContacts: function(){	
+		this.collection.each(this.viewContact);	
 	},
 	
 	destroyContacts: function(){
+		alert('prova');
+		var functions_view = new FunctionsView();
+		
+		functions_view.remove();
+		var chat_view = new ChatView();
+		chat_view.remove();
 		_.each(this.collection.record(), function(contact){contact.clear();});
 	},
 	

@@ -1,5 +1,5 @@
 /*
- * Nome:untitled.js
+ * Nome:ContactView.js
  * Package: 
  * Autore:
  * Data:
@@ -18,36 +18,49 @@ define([
  'backbone',
  'text!templates/ContactTemplate.html',
  'view/FunctionsView',
- 'view/ChatView'
-], function($, _, Backbone, ContactTemplate, FunctionsView, ChatView){
+ 'view/ChatView',
+ 'model/TextMessageModel'
+], function($, _, Backbone, ContactTemplate, FunctionsView, ChatView, TextMessageModel){
  var ContactView = Backbone.View.extend({
     template: _.template(ContactTemplate),
     
-    
-    
     events:{
-		"click li.contact" : "view"
+		"click li.contact": "view"
 	},
-	fview:'',
-	fchat:'',
+	
+	functions_view: '',
+	
+	chat_view: '',
+	
 	initialize:function(){
 		_.bindAll(this, 'render', 'view'); 
 	},
-//Per ora rendo sempre visibili dei contatti:
+	
+  //rendo visibili i contatti:
   render: function(){
     this.$el.html(this.template({dom: this.options.dom, username: this.model.toJSON().username}));   
 	return this;
   },
-// Su temp
+  
+    // funzione che crea le viste di funzioni e di chat quando clicco su un contatto
 	view : function(){
-		if(this.fview=='')
+		alert(this.functions_view);
+		
+		if(this.functions_view == '')
 		{
-			this.fview=new FunctionsView({model:this.model});
-			this.fchat=new ChatView({model:this.model});
+			this.functions_view = new FunctionsView({model: this.model});
 		} else {
-			this.fview.render();
-			this.fchat.render();
-			}
+			this.functions_view.render();
+		};
+		
+		alert(this.chat_view);
+		
+		if(this.chat_view == '')
+		{
+			this.chat_view = new ChatView({model: TextMessageModel});
+		} else {
+			this.chat_view.render();
+		}
 	}
 
 }); 

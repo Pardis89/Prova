@@ -19,7 +19,7 @@ define([
     var TextMessageModel = Backbone.Model.extend({		
 	  defaults: {
 		  recipient: '',
-		  messages:''
+		  messages: new Array()
 	  },
 	
 	    
